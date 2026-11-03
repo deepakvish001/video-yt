@@ -199,9 +199,9 @@ SHOTS.push({ start: 22.4, end: 24.24, tr: 'cut', draw(ctx, lt, t) {
   drawStick(ctx, C(RED, { x: 300, y: base - 360, s: 380, arms: { L: [.15, 0], R: [.15, 0] }, face: { eyes: 'half', mouth: 'frown', look: [.8, -.2] }, headTilt: -.06 }));
   const h = kf(lt, [[.12, 0], [.72, 549, easeOut]]);
   const win = lt > .72;
+  if (win) { const k = clamp((lt - .72) / .5); ctx.save(); ctx.globalAlpha = 1 - k; burst(ctx, 780, base - h - 150, 200 + k * 140, 14, '#ffe14d', 11, .55); ctx.restore(); }
   drawBar(ctx, 780, base, 260, h, '#2f63c9', '61%', clamp((lt - .55) / .2));
   const jump = win ? Math.abs(Math.sin((lt - .72) * 9)) * 60 * Math.exp(-(lt - .72) * 1.5) : 0;
-  if (win) { const k = clamp((lt - .72) / .5); ctx.save(); ctx.globalAlpha = 1 - k; burst(ctx, 780, base - h - 150, 200 + k * 140, 14, '#ffe14d', 11, .55); ctx.restore(); }
   drawStick(ctx, C(BLUE, { x: 780, y: base - h - jump, s: 380, arms: win ? POSE.handsUp.arms : POSE.idle.arms,
     face: win ? { eyes: 'happy', mouth: 'grin', browUp: 1 } : { eyes: 'wide', mouth: 'o', look: [0, -.5] } }));
   confetti(ctx, 780, base - h - 200, clamp((lt - .72) / 1.1), 31);
