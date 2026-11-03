@@ -11,3 +11,12 @@ __pycache__/
 .claude/skills/stick-figure/engine/template/seg/
 .claude/skills/stick-figure/engine/template/stills/
 .claude/skills/stick-figure/engine/template/silent.mp4
+
+# Reels: keep the source (script, shots, sound, voice take), not what make.sh regenerates
+reels/*/seg/
+reels/*/stills/
+reels/*/silent.mp4
+reels/*/*.mp4
+reels/*/audio/line_*.wav
+reels/*/audio/vo_kokoro.wav
+reels/*/audio/mix.wav
